@@ -7,11 +7,6 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-}
-
-
 /* Body: tipografia di base */
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
@@ -76,16 +71,16 @@ body {
 
 /* Main centrato */
 main {
-  max-width: 920px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 20px 10px;
 }
 
 
 /* Sezioni come card */
 main section {
   background-color: #ffffff;
-  padding: 32px;
+  padding: 20px;
   margin-bottom: 24px;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -120,8 +115,8 @@ h3 {
   height: 110px;
   border: 4px solid hsl(45, 90%, 60%);
   border-radius: 50%;
-  float: left;
-  margin: 0 24px 12px 0;
+  display: block;
+  margin: 0 auto 20px;
 }
 
 #chi-sono {
@@ -170,10 +165,12 @@ h3 {
 /* Progetti alternati + tag NEW sul primo */
 .project:nth-of-type(odd) {
   background-color: hsl(45, 60%, 96%);
+  border-left: 5px solid hsl(45, 90%, 60%);
 }
 
 .project:nth-of-type(even) {
   background-color: #ffffff;
+  border-left: 5px solid hsl(220, 60%, 30%);
 }
 
 .project:first-of-type h3::after {
@@ -198,8 +195,11 @@ input,
 textarea {
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: 1rem;
-  width: 60%;
+  width: 100%;
   background-color: #f5f7fb;
+  border: 1px solid #cccccc;
+  padding: 8px;
+  margin-bottom: 15px;
 }
 
 input:focus,
@@ -222,7 +222,7 @@ button {
   color: #ffffff;
   background-color: hsl(220, 60%, 30%);
   font-weight: bold;
-  width: 30%;
+  width: 100%;
   padding: 12px 24px;
   border: none;
   border-radius: 4px;
@@ -235,6 +235,12 @@ button:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
+/* Immagini fluide */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
 
 /* Footer */
 #site-footer {
@@ -245,3 +251,42 @@ button:hover {
   line-height: 2.4;
   padding: 30px 20px;
 }
+
+/* Responsitive */
+
+@media screen and (min-width: 768px) {
+  .main {
+    max-width: 920px;
+    padding: 40px 20px;
+}
+
+main section {
+  padding: 32px;
+}
+
+.avatar {
+  float: left;
+  margin:0 24px 12px 0;
+}
+
+input,
+textarea {
+  width: 60%;
+}
+
+button {
+  width: 30%;
+}
+}
+
+@media screen and (min-width: 1200px) {
+ h1 {
+  font-size: 4rem;
+ }
+ h2 {
+  font-size: 2rem;
+ }
+}
+
+
+
