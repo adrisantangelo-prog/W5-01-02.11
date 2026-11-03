@@ -1,17 +1,44 @@
-const overlay = document.getElementById("overlay");
+const overlay = document.getElementById("overlay-contatti");
 const openButton = document.getElementById("apri-contatti");
 const closeButton = document.getElementById("chiudi-contatti");
 
-openButton.addEventListener("click", () => {
-    overlay.removeAttribute("hidden");
+openButton.addEventListener('click', () => {
+    overlay.removeAttribute('hidden');
 });
 
-closeButton.addEventListener("click", () => {
-    overlay.setAttribute("hidden", "");
+closeButton.addEventListener('click', () => {
+    overlay.setAttribute('hidden', '');
 });
 
-overlay.addEventListener("click", (event) => {
+overlay.addEventListener('click', (event) => {
     if (event.target === overlay) {
-        overlay.setAttribute("hidden", "");
+        overlay.setAttribute('hidden', '');
     }
 });
+
+/* Problema de Dio quando si preme il tasto Escape non esce.
+Molto probabilmente rimani in focus sul button iscriviti e devi quindi cambiare il focus premendo un input di testo, per poi premere due volte Esc */
+
+/*overlay.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        overlay.setAttribute('hidden',''); 
+        console.log('Escape key pressed. Overlay closed.');
+    }
+});*/
+
+document.addEventListener('keydown', (e) =>  {
+    if (e.key === 'Escape') {
+        if (overlay) {
+            overlay.style.display = 'none'; 
+        }
+    }
+});
+
+/*if (overlay)
+
+È un controllo di sicurezza (una buona pratica). Verifica che la variabile overlay esista effettivamente nella pagina e non sia null o undefined, evitando che il browser generi un errore.
+
+overlay.style.display = 'none';
+
+Se il tasto premuto era l'Esc e l'elemento overlay esiste, questa riga modifica lo stile CSS dell'elemento impostando display: none, di fatto nascondendolo dalla vista dell'utente
+ */

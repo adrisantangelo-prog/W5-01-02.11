@@ -119,6 +119,7 @@ main section {
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  scroll-margin-top: 500px; /* per ancoraggio con header sticky */
 }
 
 @media (min-width: 768px) {
@@ -361,10 +362,23 @@ button:hover {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background-color: hsl(220, 60%, 30%);
+  background-color: #0033cc;
   color: #ffffff;
   z-index: 50;
+  display: inline-flex;        /* questo mette il testo al centro */
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  color: #ffffff;
+  text-decoration: none;
 }
+
+.back-to-top:hover{
+  background-color: #0033cc;
+  transform: translateY(-3px);
+}
+
+/* modal contatti */
 
 .overlay{
   position:fixed;
@@ -377,7 +391,7 @@ button:hover {
 }
 
 .modal{
-  position:fixed;
+  position:absolute;
   top:50%;
   left:50%;
   transform: translate(-50%, -50%);
@@ -386,10 +400,26 @@ button:hover {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   z-index: 1001;
+  height: 80%;
+}
+
+.modal h1{
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color:#0033cc;
+}
+
+#chiudi-contatti{
+  position:absolute;
+  top:10px;
+  right:10px;
+  border:none;
+  font-size: 20px;
+  cursor:pointer;
 }
 
 .overlay.hidden{
   display: none;
 }
 
-/* modal contatti */
