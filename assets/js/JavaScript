@@ -1,0 +1,17 @@
+const overlay = document.getElementById("overlay");
+const openButton = document.getElementById("apri-contatti");
+const closeButton = document.getElementById("chiudi-contatti");
+
+openButton.addEventListener("click", () => {
+    overlay.removeAttribute("hidden");
+});
+
+closeButton.addEventListener("click", () => {
+    overlay.setAttribute("hidden", "");
+});
+
+overlay.addEventListener("click", (event) => {
+    if (event.target === overlay) {
+        overlay.setAttribute("hidden", "");
+    }
+});
